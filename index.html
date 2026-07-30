@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>TOV Luxcom B2B Portal</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-box">
+        <img class="logo-img" src="https://images.prom.ua/3594691189_w180_h120_tov-lyukskom-ukrayina.jpg" alt="Top Luxcom Logo" />
+        <div class="logo-text">
+          <span class="brand-name">TOV LUXCOM</span>
+          <span class="brand-tag">B2B PORTAL</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Переключити тему">
+          <span class="theme-icon" id="themeIcon">🌓</span>
+        </button>
+        <div class="header-partner" id="headerPartner">
+          <div class="partner-badge">VIP -18%</div>
+          <div class="partner-name">ТОВ "Клімат-Монтаж"</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Financial Bar / Status summary -->
+    <section class="financial-summary-card">
+      <div class="fin-item">
+        <span class="fin-label">Кредитний ліміт</span>
+        <span class="fin-val" id="creditLimit">250,000 ₴</span>
+      </div>
+      <div class="fin-divider"></div>
+      <div class="fin-item">
+        <span class="fin-label">Поточний борг</span>
+        <span class="fin-val warning" id="currentDebt">42,500 ₴</span>
+      </div>
+      <div class="fin-divider"></div>
+      <div class="fin-item">
+        <span class="fin-label">Доступно</span>
+        <span class="fin-val success" id="availableCredit">207,500 ₴</span>
+      </div>
+    </section>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="catalog">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+        </span>
+        <span>Каталог B2B</span>
+      </button>
+      <button class="tab-btn" data-tab="orders">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+        </span>
+        <span>Замовлення</span>
+      </button>
+      <button class="tab-btn" data-tab="quick-order">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </span>
+        <span>Швидке замовлення</span>
+      </button>
+      <button class="tab-btn" data-tab="profile">
+        <span class="tab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </span>
+        <span>Кабінет</span>
+      </button>
+    </nav>
+
+    <!-- TAB 1: CATALOG -->
+    <main id="tab-catalog" class="tab-content active">
+      <!-- Search & Filters -->
+      <div class="search-bar-container">
+        <div class="search-input-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Пошук за назвою, артикулом (SKU)..." />
+          <button class="filter-toggle-btn" id="filterToggleBtn" title="Фільтри продукції">
+            <span>⚙️ Фільтри</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Collapsible B2B Filter Drawer Panel -->
+      <div class="filter-panel hidden" id="filterPanel">
+        <div class="filter-panel-header">
+          <span>🎛️ Точний фільтр характеристик HVAC</span>
+          <button class="reset-filters-btn" id="resetFiltersBtn">Скинути всі</button>
+        </div>
+        <div class="filter-panel-body">
+          <div class="filter-group">
+            <label>Діаметр труби / Внутрішній діаметр</label>
+            <select id="filterDiameter">
+              <option value="all">Всі діаметри</option>
+              <option value="1/4&quot;">1/4" (6.35 мм)</option>
+              <option value="3/8&quot;">3/8" (9.52 мм)</option>
+              <option value="6 мм">6 мм</option>
+              <option value="102 мм">102 мм</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Тип Фреону / Хладагенту</label>
+            <select id="filterFreon">
+              <option value="all">Всі марки фреону</option>
+              <option value="R410A">R410A</option>
+              <option value="R32">R32 (Екологічний)</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Виробник / Бренд</label>
+            <select id="filterBrand">
+              <option value="all">Всі бренди</option>
+              <option value="Halcor">Halcor (Греція)</option>
+              <option value="K-Flex">K-Flex</option>
+              <option value="Sauermann">Sauermann (Франція)</option>
+              <option value="SANME">SANME</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Складський статус</label>
+            <select id="filterStock">
+              <option value="all">Всі товари</option>
+              <option value="in_stock">Тільки в наявності (>100)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories horizontal scroll -->
+      <div class="categories-scroll" id="categoriesContainer">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </main>
+
+    <!-- TAB 2: ORDERS -->
+    <main id="tab-orders" class="tab-content">
+      <div class="section-title">Історія замовлень та статуси</div>
+      <div class="orders-list" id="ordersContainer">
+        <!-- Rendered dynamically -->
+      </div>
+    </main>
+
+    <!-- TAB 3: QUICK ORDER WITH AI & PHOTO UPLOAD -->
+    <main id="tab-quick-order" class="tab-content">
+      <div class="quick-order-card">
+        <h3>⚡ Швидке замовлення B2B</h3>
+        <p class="hint">Оберіть зручний спосіб формування замовлення:</p>
+
+        <div class="quick-order-modes">
+          <button class="mode-btn active" id="modeTextBtn">📝 Текст / SKU</button>
+          <button class="mode-btn" id="modeFormBtn">➕ Голосовий / Текстовий опис</button>
+          <button class="mode-btn" id="modePhotoBtn">📷 Сфотографувати специфікацію</button>
+        </div>
+
+        <!-- Mode 1: SKU Text list -->
+        <div class="mode-content" id="modeTextContent">
+          <p class="hint">Вставте список артикулів товарів та кількості (наприклад: <code>COPPER-14-15M 10</code>)</p>
+          <textarea id="quickOrderText" placeholder="Введіть артикули та кількість..."></textarea>
+          <button class="btn primary-btn full-btn" id="parseQuickOrderBtn">Розпізнати Артикули та додати в кошик</button>
+        </div>
+
+        <!-- Mode 2: Natural Language Order & Voice Search -->
+        <div class="mode-content hidden" id="modeFormContent">
+          <p class="hint">Введіть або надиктуйте голосом назву товару (наприклад: <em>"Мідні труби"</em>):</p>
+          <div class="voice-search-wrapper" style="display: flex; gap: 6px; margin-bottom: 10px;">
+            <input type="text" id="naturalSearchInput" placeholder="Напишіть або надиктуйте голосом..." style="flex: 1; padding: 10px; border-radius: 12px; border: 1px solid var(--border-color); background: var(--bg-main); color: var(--text-main); font-family: inherit; font-size: 13px;" />
+            <button class="mic-btn" id="voiceMicBtn" title="ШІ Голосовий Пошук" style="background: var(--accent-blue); color: #fff; border: none; padding: 10px 14px; border-radius: 12px; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="22"></line>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Dynamic Live Search Matches List -->
+          <div id="quickSearchResults" class="quick-search-results">
+            <!-- Dynamically rendered matching products -->
+          </div>
+        </div>
+
+        <!-- Mode 3: Photo Upload AI -->
+        <div class="mode-content hidden" id="modePhotoContent">
+          <p class="hint">Завантажте або сфотографуйте накладну / специфікацію / креслення з об'єкта:</p>
+          <div class="photo-upload-box" id="photoDropArea">
+            <span class="upload-icon">📷</span>
+            <p>Натисніть щоб зробити фото або виберіть файл накладної</p>
+            <input type="file" id="photoInput" accept="image/*" style="display: none;" />
+            <div id="photoPreviewName" style="font-size: 11px; color: var(--accent-blue); margin-top: 6px; font-weight: 700;"></div>
+          </div>
+          <button class="btn primary-btn full-btn" id="parsePhotoBtn">🤖 Розпізнати фото специфікації з ШІ</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- TAB 4: PROFILE & PAID PURCHASES -->
+    <main id="tab-profile" class="tab-content">
+      <div class="profile-card" id="profileContainer">
+        <!-- Rendered dynamically -->
+      </div>
+      
+      <div class="paid-purchases-section" style="margin-top: 14px;">
+        <h3 style="font-size: 14px; margin-bottom: 8px; color: var(--accent-blue);">💳 Мої Оплачені Замовлення (Архів)</h3>
+        <div id="paidOrdersContainer">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Floating Sticky Cart Bar -->
+    <div class="floating-cart-bar hidden" id="cartBar">
+      <div class="cart-info">
+        <span class="cart-count-badge" id="cartCount">0</span>
+        <div class="cart-total-box">
+          <span class="cart-total-label">Всього зі знижкою B2B:</span>
+          <span class="cart-total-amount" id="cartTotal">0 ₴</span>
+        </div>
+      </div>
+      <button class="btn checkout-btn" id="openCartBtn">Оформити ➔</button>
+    </div>
+
+    <!-- Cart / Checkout Modal Drawer -->
+    <div class="modal-overlay hidden" id="cartModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 style="display: flex; align-items: center; gap: 8px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span>Оформлення B2B Замовлення</span>
+          </h2>
+          <button class="close-btn" id="closeCartBtn">✕</button>
+        </div>
+        <div class="modal-body">
+          <!-- Clean Cart Toolbar: Select All + Single Clean Cart Action -->
+          <div class="cart-toolbar" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 10px; background: var(--bg-main); border-radius: 10px; margin-bottom: 10px; font-size: 12px;">
+            <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-weight: 700;">
+              <input type="checkbox" id="selectAllCartItems" checked style="accent-color: var(--accent-blue);" />
+              <span>Вибрати все</span>
+            </label>
+            <button id="clearAllCartBtn" style="background: transparent; border: none; color: var(--accent-red); font-size: 11px; font-weight: 700; cursor: pointer;">🗑️ Очистити кошик</button>
+          </div>
+
+          <div class="cart-items-list" id="cartItemsList">
+            <!-- Items -->
+          </div>
+
+          <form id="checkoutForm" class="checkout-form">
+            <div class="form-group">
+              <label>Оберіть місто доставки</label>
+              <select id="citySelect">
+                <option value="Київ">Київ</option>
+                <option value="Харків">Харків</option>
+                <option value="Одеса">Одеса</option>
+                <option value="Дніпро">Дніпро</option>
+                <option value="Львів">Львів</option>
+                <option value="Запоріжжя">Запоріжжя</option>
+                <option value="Вінниця">Вінниця</option>
+                <option value="Полтава">Полтава</option>
+              </select>
+              <div id="cityLivePreview" class="live-preview-badge">
+                🏙️ Обране місто: Київ
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>№ Відділення / Поштомату Нової Пошти</label>
+              <select id="deliverySelect" style="white-space: normal; height: auto;">
+                <option value="Вантажне відділення №1 (вул. Пирогівський шлях, 135)">Вантажне відділення №1 (вул. Пирогівський шлях, 135)</option>
+                <option value="Відділення №130 (вул. Будівельників, 40)">Відділення №130 (вул. Будівельників, 40)</option>
+                <option value="Поштомат №5432 (вул. Хрещатик, 15)">Поштомат №5432 (вул. Хрещатик, 15)</option>
+                <option value="Поштомат №8712 (просп. Перемоги, 22)">Поштомат №8712 (просп. Перемоги, 22)</option>
+                <option value="Точка видачі №5 (вул. Велика Васильківська, 80)">Точка видачі №5 (вул. Велика Васильківська, 80)</option>
+                <option value="Самовивіз зі складу TOV Luxcom (м. Київ, вул. Будівельна, 14)">Самовивіз зі складу TOV Luxcom</option>
+              </select>
+              <div id="deliveryBranchLivePreview" class="live-preview-badge">
+                📦 Обране відділення: Вантажне відділення №1 (вул. Пирогівський шлях, 135)
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Форма оплати</label>
+              <select id="paymentSelect">
+                <option value="Безготівковий розрахунок з ПДВ (Рахунок-фактура)">Безготівковий розрахунок з ПДВ (Рахунок-фактура)</option>
+                <option value="З персонального Кредитного Ліміту (Відстрочка 30 днів)">З персонального Кредитного Ліміту (Відстрочка 30 днів)</option>
+              </select>
+              <div id="paymentLivePreview" class="live-preview-badge">
+                💳 Обрано: Безготівковий розрахунок з ПДВ (Рахунок-фактура)
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Коментар / Примітка до замовлення</label>
+              <input type="text" id="orderNote" placeholder="№ об'єкта, менеджер, побажання..." />
+              <div id="noteLivePreview" class="live-preview-badge green-badge" style="display: none;">
+                💬 Примітка: <span></span>
+              </div>
+            </div>
+
+            <div class="checkout-summary">
+              <div class="summary-row">
+                <span>Сума за ринковими цінами:</span>
+                <span id="summaryRetail">0 ₴</span>
+              </div>
+              <div class="summary-row discount">
+                <span>Ваша партнерська знижка (18%):</span>
+                <span id="summaryDiscount">-0 ₴</span>
+              </div>
+              <div class="summary-row total">
+                <span>Разом до сплати з ПДВ:</span>
+                <span id="summaryTotal">0 ₴</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn primary-btn full-btn submit-order-btn">
+              ⚡ Підтвердити та відправити замовлення
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>

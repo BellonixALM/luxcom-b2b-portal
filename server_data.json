@@ -1,0 +1,441 @@
+{
+  "partner": {
+    "id": "PAR-7890",
+    "company": "ТОВ \"Клімат-Монтаж Сервіс\"",
+    "edrpou": "38492011",
+    "contactPerson": "Олександр Мельник",
+    "phone": "+380 67 123 45 67",
+    "email": "order@climat-montazh.ua",
+    "tier": "VIP Дилер (-18%)",
+    "discountPercent": 18,
+    "creditLimit": 250000,
+    "currentDebt": 42500,
+    "availableCredit": 207500,
+    "manager": {
+      "name": "Андрій Ковальчук",
+      "phone": "+380 67 337 11 22",
+      "telegram": "@luxcom_sale"
+    }
+  },
+  "categories": [
+    {
+      "id": "all",
+      "name": "Всі товари",
+      "icon": "📦"
+    },
+    {
+      "id": "copper-pipes",
+      "name": "Труба мідна та фітинги",
+      "icon": "🌀"
+    },
+    {
+      "id": "insulation",
+      "name": "Теплоізоляція K-Flex / K-Fonik",
+      "icon": "🛡️"
+    },
+    {
+      "id": "freon-materials",
+      "name": "Фреон та Матеріали",
+      "icon": "❄️"
+    },
+    {
+      "id": "ventilation",
+      "name": "Повітропроводи та Решітки",
+      "icon": "🌬️"
+    },
+    {
+      "id": "brackets-fix",
+      "name": "Кронштейни та Кріплення Walraven",
+      "icon": "⚙️"
+    },
+    {
+      "id": "drainage-pumps",
+      "name": "Дренажні насоси та сифони",
+      "icon": "💧"
+    }
+  ],
+  "products": [
+    {
+      "id": "LUX-COPPER-14",
+      "category": "copper-pipes",
+      "name": "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+      "sku": "COPPER-14-15M",
+      "retailPrice": 1450,
+      "b2bPrice": 1189,
+      "unit": "бухта",
+      "stock": 480,
+      "minOrder": 1,
+      "specs": {
+        "Діаметр": "1/4\" (6.35 мм)",
+        "Товщина стінки": "0.76 мм",
+        "Довжина бухти": "15 м",
+        "Виробник": "Halcor (Греція)",
+        "Стандарт": "EN 12735-1"
+      },
+      "badge": "Хіт продажів",
+      "image": "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+    },
+    {
+      "id": "LUX-COPPER-38",
+      "category": "copper-pipes",
+      "name": "Труба мідна кондиціонерна 3/8\" (9.52х0.81 мм) Halcor (Бухта 15м)",
+      "sku": "COPPER-38-15M",
+      "retailPrice": 2350,
+      "b2bPrice": 1927,
+      "unit": "бухта",
+      "stock": 310,
+      "minOrder": 1,
+      "specs": {
+        "Діаметр": "3/8\" (9.52 мм)",
+        "Товщина стінки": "0.81 мм",
+        "Довжина бухти": "15 м",
+        "Виробник": "Halcor (Греція)"
+      },
+      "badge": "В наявності",
+      "image": "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+    },
+    {
+      "id": "LUX-INSUL-06-06",
+      "category": "insulation",
+      "name": "Теплоізоляція для мідних труб K-Flex ST 06x06 мм (2м)",
+      "sku": "KFLEX-ST-0606",
+      "retailPrice": 28,
+      "b2bPrice": 22.9,
+      "unit": "м (штука 2м)",
+      "stock": 3500,
+      "minOrder": 10,
+      "specs": {
+        "Внутрішній діаметр": "6 мм (1/4\")",
+        "Товщина ізоляції": "6 мм",
+        "Матеріал": "Спінений каучук",
+        "Робоча температура": "-40...+105 °C"
+      },
+      "badge": "K-FLEX",
+      "image": "https://images.prom.ua/2945492758_w321_h266_teploizolyatsiya.jpg"
+    },
+    {
+      "id": "LUX-FREON-R410A",
+      "category": "freon-materials",
+      "name": "Хладагент / Фреон R410A (Балон 11.3 кг) SANME",
+      "sku": "FREON-R410A-11.3",
+      "retailPrice": 3800,
+      "b2bPrice": 3116,
+      "unit": "балон",
+      "stock": 140,
+      "minOrder": 1,
+      "specs": {
+        "Вага нетто": "11.3 кг",
+        "Тип хладагенту": "R410A",
+        "Чистота": "99.9%",
+        "Контейнер": "Одноразовий балон"
+      },
+      "badge": "Оригінал",
+      "image": "https://images.prom.ua/2945497133_w321_h266_materiali-dlya-konditsionuvannya.jpg"
+    },
+    {
+      "id": "LUX-FREON-R32",
+      "category": "freon-materials",
+      "name": "Хладагент / Фреон R32 екологічний (Балон 9.5 кг)",
+      "sku": "FREON-R32-9.5",
+      "retailPrice": 3650,
+      "b2bPrice": 2993,
+      "unit": "балон",
+      "stock": 95,
+      "minOrder": 1,
+      "specs": {
+        "Вага нетто": "9.5 кг",
+        "Тип": "R32 (Eco-Friendly)",
+        "Застосування": "Інверторні кондиціонери"
+      },
+      "badge": "ТОП Продажів",
+      "image": "https://images.prom.ua/2945497133_w321_h266_materiali-dlya-konditsionuvannya.jpg"
+    },
+    {
+      "id": "LUX-BRACKET-K2",
+      "category": "brackets-fix",
+      "name": "Кронштейн для зовнішнього блоку кондиціонера K2 (450х450 мм) оцинкований",
+      "sku": "BRACKET-K2-450",
+      "retailPrice": 380,
+      "b2bPrice": 311.6,
+      "unit": "комплект",
+      "stock": 1200,
+      "minOrder": 5,
+      "specs": {
+        "Розмір": "450х450 мм",
+        "Макс. навантаження": "150 кг",
+        "Покриття": "Порошкове оцинковане",
+        "Комплект": "2 шт (лівий + правий)"
+      },
+      "badge": "Посилений",
+      "image": "https://images.prom.ua/7085980159_w321_h266_kripilni-sistemi-walraven.jpg"
+    },
+    {
+      "id": "LUX-DRAIN-PUMP-MINI",
+      "category": "drainage-pumps",
+      "name": "Дренажна помпа проточна Sauermann Si-30 для кондиціонерів",
+      "sku": "SAUERMANN-SI30",
+      "retailPrice": 2950,
+      "b2bPrice": 2419,
+      "unit": "шт",
+      "stock": 85,
+      "minOrder": 1,
+      "specs": {
+        "Продуктивність": "20 л/год",
+        "Макс. висота нагнітання": "10 м",
+        "Рівень шуму": "20 дБА",
+        "Виробник": "Sauermann (Франція)"
+      },
+      "badge": "Тиха",
+      "image": "https://images.prom.ua/77889269_w321_h266_nasosi.jpg"
+    },
+    {
+      "id": "LUX-VENT-DUCT-102",
+      "category": "ventilation",
+      "name": "Повітропровід гнучкий ізольований Alu-Alumar 102мм (Упаковка 10м)",
+      "sku": "VENT-DUCT-102-IS",
+      "retailPrice": 620,
+      "b2bPrice": 508.4,
+      "unit": "упак 10м",
+      "stock": 340,
+      "minOrder": 1,
+      "specs": {
+        "Діаметр": "102 мм",
+        "Довжина": "10 м",
+        "Ізоляція": "Мінвата 25мм",
+        "Температурний режим": "-30...+140 °C"
+      },
+      "badge": "Ізольований",
+      "image": "https://images.prom.ua/7085928384_w321_h266_povitroprovodi-gnuchki.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": "TL-2026-5302",
+      "date": "2026-07-30 16:07",
+      "total": 1189,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "Безготівковий розрахунок з ПДВ (Рахунок-фактура)",
+      "delivery": "Вантажне відділення №1 (вул. Пирогівський шлях, 135)",
+      "itemsCount": 1,
+      "items": [
+        {
+          "productId": "LUX-COPPER-14",
+          "name": "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+          "b2bPrice": 1189,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-6372",
+      "date": "2026-07-30 16:04",
+      "total": 1189,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "З персонального Кредитного Ліміту (Відстрочка 30 днів)",
+      "delivery": "Відділення №12 (Запоріжжя)",
+      "itemsCount": 1,
+      "items": [
+        {
+          "productId": "LUX-COPPER-14",
+          "name": "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+          "b2bPrice": 1189,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-4720",
+      "date": "2026-07-30 16:02",
+      "total": 1927,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "З персонального Кредитного Ліміту (Відстрочка 30 днів)",
+      "delivery": "Вантажне відділення №1 (вул. Городоцька, 355)",
+      "itemsCount": 1,
+      "items": [
+        {
+          "productId": "LUX-COPPER-38",
+          "name": "Труба мідна кондиціонерна 3/8\" (9.52х0.81 мм) Halcor (Бухта 15м)",
+          "b2bPrice": 1927,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-9804",
+      "date": "2026-07-30 15:59",
+      "total": 3977,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "Безготівковий розрахунок з ПДВ (Рахунок-фактура)",
+      "delivery": "Вантажне відділення №1 (вул. Пирогівський шлях, 135)",
+      "itemsCount": 2,
+      "items": [
+        {
+          "productId": "LUX-DRAIN-PUMP-MINI",
+          "name": "Дренажна помпа проточна Sauermann Si-30 для кондиціонерів",
+          "b2bPrice": 2419,
+          "quantity": 1
+        },
+        {
+          "productId": "LUX-BRACKET-K2",
+          "name": "Кронштейн для зовнішнього блоку кондиціонера K2 (450х450 мм) оцинкований",
+          "b2bPrice": 311.6,
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-5611",
+      "date": "2026-07-30 15:33",
+      "total": 23757,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "З персонального Кредитного Ліміту",
+      "delivery": "Нова Пошта - Кур'єрська доставка",
+      "itemsCount": 3,
+      "items": [
+        {
+          "productId": "LUX-COPPER-14",
+          "name": "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+          "b2bPrice": 1189,
+          "quantity": 10
+        },
+        {
+          "productId": "LUX-FREON-R410A",
+          "name": "Хладагент / Фреон R410A (Балон 11.3 кг) SANME",
+          "b2bPrice": 3116,
+          "quantity": 3
+        },
+        {
+          "productId": "LUX-INSUL-06-06",
+          "name": "Теплоізоляція для мідних труб K-Flex ST 06x06 мм (2м)",
+          "b2bPrice": 22.9,
+          "quantity": 110
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-3382",
+      "date": "2026-07-30 15:31",
+      "total": 21970,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "З персонального Кредитного Ліміту",
+      "delivery": "Нова Пошта - Кур'єрська доставка",
+      "itemsCount": 4,
+      "items": [
+        {
+          "productId": "LUX-BRACKET-K2",
+          "name": "Кронштейн для зовнішнього блоку кондиціонера K2 (450х450 мм) оцинкований",
+          "b2bPrice": 311.6,
+          "quantity": 5
+        },
+        {
+          "productId": "LUX-COPPER-14",
+          "name": "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+          "b2bPrice": 1189,
+          "quantity": 10
+        },
+        {
+          "productId": "LUX-FREON-R410A",
+          "name": "Хладагент / Фреон R410A (Балон 11.3 кг) SANME",
+          "b2bPrice": 3116,
+          "quantity": 2
+        },
+        {
+          "productId": "LUX-INSUL-06-06",
+          "name": "Теплоізоляція для мідних труб K-Flex ST 06x06 мм (2м)",
+          "b2bPrice": 22.9,
+          "quantity": 100
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-9076",
+      "date": "2026-07-30 15:29",
+      "total": 6109,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "З персонального Кредитного Ліміту",
+      "delivery": "Нова Пошта - Кур'єрська доставка",
+      "itemsCount": 2,
+      "items": [
+        {
+          "productId": "LUX-FREON-R32",
+          "name": "Хладагент / Фреон R32 екологічний (Балон 9.5 кг)",
+          "b2bPrice": 2993,
+          "quantity": 1
+        },
+        {
+          "productId": "LUX-FREON-R410A",
+          "name": "Хладагент / Фреон R410A (Балон 11.3 кг) SANME",
+          "b2bPrice": 3116,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-2902",
+      "date": "2026-07-30 15:16",
+      "total": 6724,
+      "status": "processing",
+      "statusText": "Обробляється менеджером",
+      "ttn": "Очікує відправки",
+      "paymentType": "Безготівковий розрахунок з ПДВ (Рахунок-фактура)",
+      "delivery": "Нова Пошта - Відділення №1 (Київ, вул. Пирогівський шлях)",
+      "itemsCount": 3,
+      "items": [
+        {
+          "productId": "LUX-COPPER-14",
+          "name": "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+          "b2bPrice": 1189,
+          "quantity": 1
+        },
+        {
+          "productId": "LUX-FREON-R410A",
+          "name": "Хладагент / Фреон R410A (Балон 11.3 кг) SANME",
+          "b2bPrice": 3116,
+          "quantity": 1
+        },
+        {
+          "productId": "LUX-DRAIN-PUMP-MINI",
+          "name": "Дренажна помпа проточна Sauermann Si-30 для кондиціонерів",
+          "b2bPrice": 2419,
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "TL-2026-9041",
+      "date": "2026-07-28 14:32",
+      "total": 48350,
+      "status": "shipped",
+      "statusText": "Відправлено (НП)",
+      "ttn": "20450982341902",
+      "paymentType": "Безготівковий з ПДВ",
+      "delivery": "Нова Пошта Відділення №1 (Київ)",
+      "itemsCount": 4
+    },
+    {
+      "id": "TL-2026-8812",
+      "date": "2026-07-20 11:15",
+      "total": 142400,
+      "status": "completed",
+      "statusText": "Виконано",
+      "ttn": "20450977123991",
+      "paymentType": "Безготівковий з ПДВ",
+      "delivery": "Самовивіз зі складу Top Luxcom",
+      "itemsCount": 18
+    }
+  ]
+}
