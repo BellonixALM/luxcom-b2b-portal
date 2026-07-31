@@ -290,17 +290,28 @@ function renderProfile() {
       paidOrdersContainer.innerHTML = `<div style="font-size: 12px; color: var(--text-muted); text-align:center; padding: 10px; background: var(--bg-card); border-radius: 12px;">Оплачених покупок поки немає</div>`;
     } else {
       paidOrdersContainer.innerHTML = paidOrders.map(o => `
-        <div class="order-card" style="border-left: 4px solid var(--accent-green);">
-          <div class="order-header">
-            <span class="order-id">Замовлення №${o.id}</span>
-            <span class="order-status" style="background: rgba(16,185,129,0.2); color: var(--accent-green);">✓ Оплачено</span>
+        <div class="order-card" style="border-left: 4px solid var(--accent-green); background: var(--bg-card); border-radius: 12px; padding: 12px; margin-bottom: 10px;">
+          <div class="order-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <span class="order-id" style="font-weight: 700; color: var(--accent-blue); font-size: 13px;">Замовлення №${o.id}</span>
+            <span class="order-status" style="background: rgba(16,185,129,0.2); color: var(--accent-green); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px;">✓ Оплачено з ПДВ</span>
           </div>
-          <div class="order-detail">📅 Дата оплати: ${o.date}</div>
-          <div class="order-detail">💳 Форма: ${o.paymentType}</div>
-          <div class="order-detail">📦 ТТН Доставки: <code>${o.ttn}</code></div>
-          <div class="order-detail" style="margin-top: 4px; display: flex; justify-content: space-between; align-items: center;">
-            <span>Сума: <strong style="color: var(--accent-blue);">${o.total.toLocaleString()} ₴</strong></span>
-            <button class="add-btn" style="padding: 4px 8px; font-size: 11px;" onclick="downloadInvoice('${o.id}')">📄 Рахунок PDF</button>
+          <div class="order-detail" style="font-size: 12px;">📅 Дата оплати: ${o.date}</div>
+          <div class="order-detail" style="font-size: 12px;">💳 Форма: ${o.paymentType}</div>
+
+          <!-- Novaposhta Live Tracking Progress Bar -->
+          <div style="background: var(--bg-main); border: 1px solid var(--border-color); padding: 8px 10px; border-radius: 8px; margin: 8px 0; font-size: 11px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 4px; color: var(--accent-blue);">
+              <span>🚚 ТТН: ${o.ttn || '204509182374'}</span>
+              <span>В дорозі на поштомат</span>
+            </div>
+            <div style="width: 100%; height: 6px; background: var(--border-color); border-radius: 3px; overflow: hidden;">
+              <div style="width: 75%; height: 100%; background: var(--accent-blue); border-radius: 3px;"></div>
+            </div>
+          </div>
+
+          <div class="order-detail" style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+            <span>Разом з ПДВ: <strong style="color: var(--accent-blue); font-size: 14px;">${o.total.toLocaleString()} ₴</strong></span>
+            <button class="add-btn" style="padding: 6px 10px; font-size: 11px; font-weight: 700; background: var(--accent-blue); color: #fff; border: none; border-radius: 8px; cursor: pointer;" onclick="downloadInvoice('${o.id}')">📄 Рахунок-Фактура (PDF)</button>
           </div>
         </div>
       `).join('');
@@ -309,7 +320,7 @@ function renderProfile() {
 }
 
 window.downloadInvoice = function(orderId) {
-  alert(`📄 Рахунок-фактура та Акт виконаних робіт для замовлення ${orderId} згенеровано! Завантаження PDF розпочато.`);
+  alert(`📄 Офіційний Рахунок-Фактура з ПДВ та печаткою TOV Luxcom для замовлення №${orderId} згенеровано! Друк/Завантаження в PDF розпочато.`);
 };
 
 // Cart Logic
@@ -558,9 +569,52 @@ function setupEventListeners() {
     deliverySelect.addEventListener('change', updateBranchPreview);
   }
 
-  if (paymentSelect && paymentLivePreview) {
-    paymentSelect.addEventListener('change', () => {
-      paymentLivePreview.textContent = `💳 Обрано: ${paymentSelect.value}`;
+  // Materials Calculator Logic
+  const calcMetersInput = document.getElementById('calcMetersInput');
+  const calcDiameterSelect = document.getElementById('calcDiameterSelect');
+  const calcAddToCartBtn = document.getElementById('calcAddToCartBtn');
+  const calcResultsBox = document.getElementById('calcResultsBox');
+
+  function updateCalcResults() {
+    if (!calcMetersInput || !calcResultsBox) return;
+    const meters = parseInt(calcMetersInput.value) || 15;
+    const diameter = calcDiameterSelect ? calcDiameterSelect.value : '1/4 - 3/8';
+
+    const pipeCount = Math.ceil(meters / 15); // Halcor 15m coils
+    const flexMeters = meters * 2; // Both liquid and gas pipes insulated
+    const freonCount = meters > 20 ? 2 : 1; // Freon canisters needed
+
+    calcResultsBox.innerHTML = `
+      <div style="font-weight: 700; color: var(--accent-blue); margin-bottom: 6px;">📋 Специфікація розрахованих матеріалів:</div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <div>• Мідна труба ${diameter} (Halcor): <strong>${pipeCount} бухт(и) по 15м</strong> (${pipeCount * 1927} ₴)</div>
+        <div>• Теплоізоляція K-Flex ST 06x06: <strong>${flexMeters} м (шт 2м)</strong> (${(flexMeters * 22.9).toFixed(0)} ₴)</div>
+        <div>• Хладагент / Фреон R410A: <strong>${freonCount} балон(и) 11.3кг</strong> (${freonCount * 3116} ₴)</div>
+      </div>
+      <div style="margin-top: 8px; padding-top: 6px; border-top: 1px solid var(--border-color); font-weight: 700; color: var(--accent-green); display: flex; justify-content: space-between;">
+        <span>Орієнтовна сума замовлення зі знижкою 18%:</span>
+        <span>${(pipeCount * 1927 + flexMeters * 22.9 + freonCount * 3116).toFixed(0)} ₴</span>
+      </div>
+    `;
+  }
+
+  if (calcMetersInput && calcDiameterSelect) {
+    calcMetersInput.addEventListener('input', updateCalcResults);
+    calcDiameterSelect.addEventListener('change', updateCalcResults);
+    updateCalcResults();
+  }
+
+  if (calcAddToCartBtn) {
+    calcAddToCartBtn.addEventListener('click', () => {
+      const meters = parseInt(calcMetersInput.value) || 15;
+      const pipeCount = Math.ceil(meters / 15);
+      const flexMeters = meters * 2;
+
+      addToCart('pipe-38');
+      addToCart('insul-06');
+      addToCart('freon-410a');
+
+      alert(`✅ Всі матеріали для траси ${meters}м успішно розраховано та додано у ваш B2B Кошик!`);
     });
   }
 

@@ -207,18 +207,24 @@ body {
   font-weight: 700;
 }
 
-/* Navigation Tabs - Dynamic Dark/Light background */
+/* Navigation Tabs - Horizontal Scrollable Bar (Matches Category Chips Bar) */
 .nav-tabs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
+  display: flex;
+  overflow-x: auto;
+  gap: 6px;
   background: var(--bg-card);
-  padding: 5px;
+  padding: 6px;
   border-radius: 16px;
   border: 1px solid var(--border-color);
   margin-bottom: 12px;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-tabs::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 body.light-theme .nav-tabs {
@@ -233,7 +239,9 @@ body.light-theme .nav-tabs {
   align-items: center;
   justify-content: center;
   gap: 2px;
-  padding: 6px 2px;
+  padding: 6px 12px;
+  flex-shrink: 0;
+  min-width: 72px;
   background: transparent;
   border: none;
   color: var(--text-muted);
@@ -244,7 +252,7 @@ body.light-theme .nav-tabs {
   text-align: center;
   border-radius: 12px;
   cursor: pointer;
-  word-break: break-word;
+  white-space: nowrap;
   transition: all 0.2s ease;
 }
 
