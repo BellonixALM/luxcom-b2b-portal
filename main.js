@@ -553,8 +553,9 @@ function updateCartUI() {
     elements.cartItemsList.innerHTML = state.cart.map(item => `
       <div class="cart-item" style="display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border-color);">
         <input type="checkbox" class="cart-item-checkbox" data-id="${item.product.id}" ${item.selected !== false ? 'checked' : ''} style="accent-color: var(--accent-blue);" />
+        <img src="${item.product.image}" alt="${item.product.name}" class="cart-item-thumb" style="width: 44px; height: 44px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); flex-shrink: 0;" />
         <div class="cart-item-title" style="flex: 1;">
-          <div style="font-size: 12px; font-weight: 700;">${item.product.name}</div>
+          <div style="font-size: 12px; font-weight: 700; line-height: 1.2;">${item.product.name}</div>
           <small style="color: var(--accent-blue); font-weight: 700;">${item.product.b2bPrice} ₴ / ${item.product.unit}</small>
         </div>
         <div class="cart-item-controls" style="display: flex; align-items: center; gap: 4px;">
