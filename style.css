@@ -92,6 +92,91 @@ body.light-theme .product-sku {
   color: #64748b !important;
 }
 
+/* 100% Pure Light Theme Overrides for Cart Modal, Checkout & Controls */
+body.light-theme .modal-content {
+  background: #ffffff !important;
+  border-top: 1px solid rgba(2, 132, 199, 0.3) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .modal-header {
+  background: #f8fafc !important;
+  border-bottom: 1px solid rgba(2, 132, 199, 0.2) !important;
+}
+
+body.light-theme .modal-header h2 {
+  color: #0f172a !important;
+}
+
+body.light-theme .cart-item {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .cart-item-title {
+  color: #0f172a !important;
+}
+
+body.light-theme .cart-item-price {
+  color: #0284c7 !important;
+}
+
+body.light-theme .checkout-form-container,
+body.light-theme .quick-order-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .checkout-form-container h3,
+body.light-theme .quick-order-card h3 {
+  color: #0f172a !important;
+}
+
+body.light-theme label,
+body.light-theme .select-all-label,
+body.light-theme .form-group label {
+  color: #1e293b !important;
+  font-weight: 700 !important;
+}
+
+body.light-theme .form-group input,
+body.light-theme .form-group select,
+body.light-theme .form-group textarea {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.3) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .cart-summary {
+  background: #f8fafc !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .cart-summary-line {
+  color: #334155 !important;
+}
+
+body.light-theme .cart-summary-line.total {
+  color: #0f172a !important;
+}
+
+body.light-theme .floating-cart-bar {
+  background: #ffffff !important;
+  border: 2px solid #0284c7 !important;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2) !important;
+}
+
+body.light-theme .cart-total-amount {
+  color: #0f172a !important;
+}
+
+body.light-theme .close-modal-btn {
+  color: #334155 !important;
+}
+
 .header-right {
   display: flex;
   align-items: center;
