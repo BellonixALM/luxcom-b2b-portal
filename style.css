@@ -136,6 +136,34 @@ body.light-theme .retail-price {
   color: #64748b !important;
 }
 
+/* Cabinet & Orders Light Theme Fixes */
+body.light-theme .profile-card,
+body.light-theme .order-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  color: #0f172a !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.light-theme .profile-card h2,
+body.light-theme .profile-card p,
+body.light-theme .profile-card strong,
+body.light-theme .order-id,
+body.light-theme .order-detail {
+  color: #0f172a !important;
+}
+
+body.light-theme .order-detail {
+  color: #334155 !important;
+}
+
+body.light-theme .ttn-box {
+  background: #f1f5f9 !important;
+  color: #0284c7 !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  font-weight: 700 !important;
+}
+
 /* 100% Pure Light Theme Overrides for Cart Modal, Checkout & Controls */
 body.light-theme .modal-content {
   background: #ffffff !important;
