@@ -110,41 +110,149 @@ async function initApp() {
   renderProfile();
 }
 
-// API Calls
+// Embedded Fallback Data for Static GitHub Hosting
+const FALLBACK_DATA = {
+  partner: {
+    id: "PAR-7890",
+    company: "ТОВ \"Клімат-Монтаж Сервіс\"",
+    edrpou: "38492011",
+    contactPerson: "Олександр Мельник",
+    phone: "+380 67 123 45 67",
+    email: "order@climat-montazh.ua",
+    tier: "VIP Дилер (-18%)",
+    discountPercent: 18,
+    creditLimit: 250000,
+    currentDebt: 42500,
+    availableCredit: 207500,
+    manager: {
+      name: "Андрій Ковальчук",
+      phone: "+380 67 337 11 22",
+      telegram: "@luxcom_sale"
+    }
+  },
+  categories: [
+    { id: "all", name: "Всі товари", icon: "📦" },
+    { id: "copper-pipes", name: "Труба мідна та фітинги", icon: "🌀" },
+    { id: "insulation", name: "Теплоізоляція K-Flex / K-Fonik", icon: "🛡️" },
+    { id: "freon-materials", name: "Фреон та Матеріали", icon: "❄️" },
+    { id: "ventilation", name: "Повітропроводи та Решітки", icon: "🌬️" },
+    { id: "brackets-fix", name: "Кронштейни та Кріплення Walraven", icon: "⚙️" },
+    { id: "drainage-pumps", name: "Дренажні насоси та сифони", icon: "💧" }
+  ],
+  products: [
+    {
+      id: "LUX-COPPER-14",
+      category: "copper-pipes",
+      name: "Труба мідна кондиціонерна 1/4\" (6.35х0.76 мм) Halcor (Бухта 15м)",
+      sku: "COPPER-14-15M",
+      retailPrice: 1450,
+      b2bPrice: 1189,
+      unit: "бухта",
+      stock: 480,
+      minOrder: 1,
+      specs: { "Діаметр": "1/4\" (6.35 мм)", "Товщина стінки": "0.76 мм", "Виробник": "Halcor (Греція)" },
+      badge: "Хіт продажів",
+      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+    },
+    {
+      id: "LUX-COPPER-38",
+      category: "copper-pipes",
+      name: "Труба мідна кондиціонерна 3/8\" (9.52х0.81 мм) Halcor (Бухта 15м)",
+      sku: "COPPER-38-15M",
+      retailPrice: 2350,
+      b2bPrice: 1927,
+      unit: "бухта",
+      stock: 310,
+      minOrder: 1,
+      specs: { "Діаметр": "3/8\" (9.52 мм)", "Товщина стінки": "0.81 мм", "Виробник": "Halcor (Греція)" },
+      badge: "В наявності",
+      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+    },
+    {
+      id: "LUX-INSUL-06-06",
+      category: "insulation",
+      name: "Теплоізоляція для мідних труб K-Flex ST 06x06 мм (2м)",
+      sku: "K-FLEX-ST-06O06",
+      retailPrice: 45,
+      b2bPrice: 36.9,
+      unit: "шт (2м)",
+      stock: 1200,
+      minOrder: 10,
+      specs: { "Внутрішній діаметр": "6 мм", "Товщина стінки": "6 мм", "Виробник": "K-Flex (Італія)" },
+      badge: "K-FLEX",
+      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+    },
+    {
+      id: "LUX-FREON-R32",
+      category: "freon-materials",
+      name: "Хладагент / Фреон R32 у балоні 9.5 кг (Сертифікований 99.9%)",
+      sku: "FREON-R32-9.5KG",
+      retailPrice: 3800,
+      b2bPrice: 3116,
+      unit: "балон",
+      stock: 85,
+      minOrder: 1,
+      specs: { "Чистота": "99.9%", "Вага нетто": "9.5 кг", "Хладагент": "R32" },
+      badge: "Топ якість",
+      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+    }
+  ],
+  orders: [
+    {
+      id: "ORD-2026-9041",
+      date: "30.07.2026 14:15",
+      status: "В дорозі (НП 2045091823)",
+      statusClass: "status-shipping",
+      items: ["Труба мідна 1/4\" (2 бухти)", "K-Flex 06x06 (20м)"],
+      totalAmount: 3114,
+      deliveryAddress: "НП №12, м. Київ, вул. Маршала Рибалка 11"
+    }
+  ]
+};
+
+// API Calls with embedded fallback for GitHub static hosting
 async function fetchPartnerProfile() {
   try {
     const res = await fetch(`${API_BASE}/partner/profile`);
+    if (!res.ok) throw new Error('API Unavailable');
     state.partner = await res.json();
-    renderFinancials();
   } catch (err) {
-    console.error('Error fetching partner:', err);
+    console.warn('Using embedded fallback partner profile');
+    state.partner = FALLBACK_DATA.partner;
   }
+  renderFinancials();
 }
 
 async function fetchCategories() {
   try {
     const res = await fetch(`${API_BASE}/categories`);
+    if (!res.ok) throw new Error('API Unavailable');
     state.categories = await res.json();
   } catch (err) {
-    console.error('Error fetching categories:', err);
+    console.warn('Using embedded fallback categories');
+    state.categories = FALLBACK_DATA.categories;
   }
 }
 
 async function fetchProducts() {
   try {
     const res = await fetch(`${API_BASE}/products`);
+    if (!res.ok) throw new Error('API Unavailable');
     state.products = await res.json();
   } catch (err) {
-    console.error('Error fetching products:', err);
+    console.warn('Using embedded fallback products');
+    state.products = FALLBACK_DATA.products;
   }
 }
 
 async function fetchOrders() {
   try {
     const res = await fetch(`${API_BASE}/orders`);
+    if (!res.ok) throw new Error('API Unavailable');
     state.orders = await res.json();
   } catch (err) {
-    console.error('Error fetching orders:', err);
+    console.warn('Using embedded fallback orders');
+    state.orders = FALLBACK_DATA.orders;
   }
 }
 
