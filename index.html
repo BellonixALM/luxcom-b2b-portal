@@ -25,11 +25,36 @@
   <style>
     /* Direct Fallback Styles for Mobile & In-App Browsers */
     html, body {
-      background-color: #0f172a !important;
-      color: #f8fafc !important;
+      background-color: #0f172a;
+      color: #f8fafc;
       font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
       margin: 0;
       padding: 0;
+    }
+    /* 100% Pure Light Theme Direct Inline Overrides for Cart Modal & Checkout */
+    body.light-theme {
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
+    }
+    body.light-theme .modal-content,
+    body.light-theme .modal-header,
+    body.light-theme .checkout-form-container,
+    body.light-theme .quick-order-card,
+    body.light-theme .cart-item,
+    body.light-theme .cart-summary {
+      background: #ffffff !important;
+      color: #0f172a !important;
+      border-color: rgba(2, 132, 199, 0.3) !important;
+    }
+    body.light-theme label,
+    body.light-theme h2,
+    body.light-theme h3,
+    body.light-theme h4,
+    body.light-theme .cart-item-title,
+    body.light-theme .select-all-label,
+    body.light-theme .cart-summary-line {
+      color: #0f172a !important;
+      font-weight: 700 !important;
     }
   </style>
 </head>
