@@ -18,41 +18,78 @@
   --input-bg: #0f172a;
 }
 
-/* Light Theme Variables - Sky Blue Aesthetic */
+/* Light Theme Variables - Crisp High Contrast Aesthetic */
 body.light-theme {
-  --bg-main: #f0f9ff;
+  --bg-main: #f1f5f9;
   --bg-card: #ffffff;
-  --bg-card-hover: #e0f2fe;
-  --text-main: #0c4a6e;
-  --text-muted: #0284c7;
-  --border-color: rgba(2, 132, 199, 0.15);
-  --glass-bg: rgba(255, 255, 255, 0.9);
-  --input-bg: #f0f9ff;
+  --bg-card-hover: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --border-color: rgba(2, 132, 199, 0.25);
+  --glass-bg: #ffffff;
+  --input-bg: #ffffff;
 }
 
 body.light-theme .brand-name {
-  background: linear-gradient(90deg, #0f172a, #475569);
+  background: linear-gradient(90deg, #0284c7, #0369a1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-body.light-theme .product-img {
-  background: #e2e8f0;
+body.light-theme .partner-name {
+  color: #334155 !important;
 }
 
-body.light-theme .floating-cart-bar {
-  background: linear-gradient(135deg, #ffffff, #f1f5f9);
-  border: 1px solid var(--accent-gold);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+body.light-theme .fin-label {
+  color: #334155 !important;
+  font-weight: 700 !important;
 }
 
-body.light-theme .cart-total-amount {
-  color: #0f172a;
+body.light-theme .fin-val {
+  color: #0f172a !important;
+  font-weight: 800 !important;
 }
 
-body.light-theme .qty-btn {
-  background: #e2e8f0;
-  color: #0f172a;
+body.light-theme .fin-val.warning {
+  color: #0284c7 !important;
+}
+
+body.light-theme .financial-summary-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1) !important;
+}
+
+body.light-theme .header {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08) !important;
+}
+
+body.light-theme .search-bar input {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border: 1px solid rgba(2, 132, 199, 0.3) !important;
+}
+
+body.light-theme .filter-btn {
+  background: #ffffff !important;
+  color: #0284c7 !important;
+  border: 1px solid rgba(2, 132, 199, 0.3) !important;
+}
+
+body.light-theme .product-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .product-title {
+  color: #0f172a !important;
+}
+
+body.light-theme .product-sku {
+  color: #64748b !important;
 }
 
 .header-right {
