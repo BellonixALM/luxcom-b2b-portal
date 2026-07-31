@@ -18,16 +18,24 @@
   --input-bg: #0f172a;
 }
 
-/* Light Theme Variables - Crisp High Contrast Aesthetic */
+/* 100% Pure Light Theme Overrides: Crisp Clean Aesthetic */
 body.light-theme {
-  --bg-main: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-card-hover: #e2e8f0;
-  --text-main: #0f172a;
-  --text-muted: #475569;
-  --border-color: rgba(2, 132, 199, 0.25);
-  --glass-bg: #ffffff;
-  --input-bg: #ffffff;
+  --bg-main: #f8fafc !important;
+  --bg-card: #ffffff !important;
+  --bg-card-hover: #f1f5f9 !important;
+  --text-main: #0f172a !important;
+  --text-muted: #334155 !important;
+  --border-color: rgba(2, 132, 199, 0.2) !important;
+  --glass-bg: #ffffff !important;
+  --input-bg: #ffffff !important;
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+body.light-theme #app,
+body.light-theme .main-content,
+body.light-theme .tab-content {
+  background-color: #f8fafc !important;
 }
 
 body.light-theme .brand-name {
@@ -37,7 +45,8 @@ body.light-theme .brand-name {
 }
 
 body.light-theme .partner-name {
-  color: #334155 !important;
+  color: #1e293b !important;
+  font-weight: 700 !important;
 }
 
 body.light-theme .fin-label {
@@ -56,14 +65,29 @@ body.light-theme .fin-val.warning {
 
 body.light-theme .financial-summary-card {
   background: #ffffff !important;
-  border: 1px solid rgba(2, 132, 199, 0.3) !important;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.08) !important;
 }
 
 body.light-theme .header {
   background: #ffffff !important;
   border: 1px solid rgba(2, 132, 199, 0.2) !important;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.06) !important;
+}
+
+body.light-theme .nav-tabs {
+  background: #ffffff !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .tab-btn {
+  color: #334155 !important;
+}
+
+body.light-theme .tab-btn.active {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+  color: #ffffff !important; /* Allowed white text on dark blue button for high contrast */
 }
 
 body.light-theme .search-bar input {
@@ -78,10 +102,26 @@ body.light-theme .filter-btn {
   border: 1px solid rgba(2, 132, 199, 0.3) !important;
 }
 
+body.light-theme .category-chip {
+  background: #ffffff !important;
+  color: #334155 !important;
+  border: 1px solid rgba(2, 132, 199, 0.2) !important;
+}
+
+body.light-theme .category-chip.active {
+  background: #0284c7 !important;
+  color: #ffffff !important;
+}
+
 body.light-theme .product-card {
   background: #ffffff !important;
   border: 1px solid rgba(2, 132, 199, 0.2) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+}
+
+body.light-theme .product-img {
+  background: #f1f5f9 !important; /* Pure clean light image background */
+  border: 1px solid rgba(2, 132, 199, 0.15) !important;
 }
 
 body.light-theme .product-title {
@@ -89,6 +129,10 @@ body.light-theme .product-title {
 }
 
 body.light-theme .product-sku {
+  color: #475569 !important;
+}
+
+body.light-theme .retail-price {
   color: #64748b !important;
 }
 
@@ -137,7 +181,7 @@ body.light-theme .quick-order-card h3 {
 body.light-theme label,
 body.light-theme .select-all-label,
 body.light-theme .form-group label {
-  color: #1e293b !important;
+  color: #0f172a !important;
   font-weight: 700 !important;
 }
 
