@@ -208,7 +208,7 @@ const FALLBACK_DATA = {
       minOrder: 10,
       specs: { "Внутрішній діаметр": "6 мм", "Товщина стінки": "6 мм", "Виробник": "K-Flex (Італія)" },
       badge: "K-FLEX",
-      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+      image: "https://images.prom.ua/2945492758_w321_h266_teploizolyatsiya.jpg"
     },
     {
       id: "LUX-INSUL-10-06",
@@ -222,7 +222,7 @@ const FALLBACK_DATA = {
       minOrder: 10,
       specs: { "Внутрішній діаметр": "10 мм", "Товщина стінки": "6 мм", "Виробник": "K-Flex (Італія)" },
       badge: "K-FLEX",
-      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+      image: "https://images.prom.ua/2945492758_w321_h266_teploizolyatsiya.jpg"
     },
     {
       id: "LUX-FREON-R32",
@@ -236,7 +236,7 @@ const FALLBACK_DATA = {
       minOrder: 1,
       specs: { "Чистота": "99.9%", "Вага нетто": "9.5 кг", "Хладагент": "R32" },
       badge: "Топ якість",
-      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+      image: "https://images.prom.ua/2945497133_w321_h266_materiali-dlya-konditsionuvannya.jpg"
     },
     {
       id: "LUX-FREON-R410A",
@@ -250,7 +250,7 @@ const FALLBACK_DATA = {
       minOrder: 1,
       specs: { "Чистота": "99.9%", "Вага нетто": "11.3 кг", "Хладагент": "R410A" },
       badge: "Хіт",
-      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+      image: "https://images.prom.ua/2945497133_w321_h266_materiali-dlya-konditsionuvannya.jpg"
     },
     {
       id: "LUX-BRACKET-450",
@@ -264,7 +264,7 @@ const FALLBACK_DATA = {
       minOrder: 1,
       specs: { "Розмір": "450х450 мм", "Товщина сталі": "2.0 мм", "Навантаження": "до 120 кг" },
       badge: "Walraven",
-      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+      image: "https://images.prom.ua/7085980159_w321_h266_kripilni-sistemi-walraven.jpg"
     },
     {
       id: "LUX-PUMP-FLOWITA",
@@ -278,7 +278,7 @@ const FALLBACK_DATA = {
       minOrder: 1,
       specs: { "Продуктивність": "15 л/год", "Рівень шуму": "20 дБА", "Виробник": "Sauermann (Франція)" },
       badge: "Тиха 20 дБ",
-      image: "https://images.prom.ua/2945432410_w321_h266_truba-midna-ta.jpg"
+      image: "https://images.prom.ua/77889269_w321_h266_nasosi.jpg"
     }
   ],
   orders: [
